@@ -1,0 +1,119 @@
+diff --git a/app/controllers/pages_controller.rb b/app/controllers/pages_controller.rb
+new file mode 100644
+index 0000000..5635120
+--- /dev/null
++++ b/app/controllers/pages_controller.rb
+@@ -0,0 +1,8 @@
++class PagesController < ApplicationController
++  def home
++  end
++
++  def contact
++  end
++
++end
+diff --git a/app/helpers/pages_helper.rb b/app/helpers/pages_helper.rb
+new file mode 100644
+index 0000000..2c057fd
+--- /dev/null
++++ b/app/helpers/pages_helper.rb
+@@ -0,0 +1,2 @@
++module PagesHelper
++end
+diff --git a/app/views/pages/contact.html.erb b/app/views/pages/contact.html.erb
+new file mode 100644
+index 0000000..6c6359a
+--- /dev/null
++++ b/app/views/pages/contact.html.erb
+@@ -0,0 +1,2 @@
++<h1>Pages#contact</h1>
++<p>Find me in app/views/pages/contact.html.erb</p>
+diff --git a/app/views/pages/home.html.erb b/app/views/pages/home.html.erb
+new file mode 100644
+index 0000000..3453cf2
+--- /dev/null
++++ b/app/views/pages/home.html.erb
+@@ -0,0 +1,2 @@
++<h1>Pages#home</h1>
++<p>Find me in app/views/pages/home.html.erb</p>
+diff --git a/config/routes.rb b/config/routes.rb
+index f6e7918..65e2fda 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -1,4 +1,8 @@
+ SampleApp::Application.routes.draw do
++  get "pages/home"
++
++  get "pages/contact"
++
+   # The priority is based upon order of creation:
+   # first created -> highest priority.
+ 
+diff --git a/spec/controllers/pages_controller_spec.rb b/spec/controllers/pages_controller_spec.rb
+new file mode 100644
+index 0000000..4f9be83
+--- /dev/null
++++ b/spec/controllers/pages_controller_spec.rb
+@@ -0,0 +1,19 @@
++require 'spec_helper'
++
++describe PagesController do
++
++  describe "GET 'home'" do
++    it "should be successful" do
++      get 'home'
++      response.should be_success
++    end
++  end
++
++  describe "GET 'contact'" do
++    it "should be successful" do
++      get 'contact'
++      response.should be_success
++    end
++  end
++
++end
+diff --git a/spec/helpers/pages_helper_spec.rb b/spec/helpers/pages_helper_spec.rb
+new file mode 100644
+index 0000000..4f75448
+--- /dev/null
++++ b/spec/helpers/pages_helper_spec.rb
+@@ -0,0 +1,15 @@
++require 'spec_helper'
++
++# Specs in this file have access to a helper object that includes
++# the PagesHelper. For example:
++#
++# describe PagesHelper do
++#   describe "string concat" do
++#     it "concats two strings with spaces" do
++#       helper.concat_strings("this","that").should == "this that"
++#     end
++#   end
++# end
++describe PagesHelper do
++  pending "add some examples to (or delete) #{__FILE__}"
++end
+diff --git a/spec/views/pages/contact.html.erb_spec.rb b/spec/views/pages/contact.html.erb_spec.rb
+new file mode 100644
+index 0000000..ba5b0d1
+--- /dev/null
++++ b/spec/views/pages/contact.html.erb_spec.rb
+@@ -0,0 +1,5 @@
++require 'spec_helper'
++
++describe "pages/contact.html.erb" do
++  pending "add some examples to (or delete) #{__FILE__}"
++end
+diff --git a/spec/views/pages/home.html.erb_spec.rb b/spec/views/pages/home.html.erb_spec.rb
+new file mode 100644
+index 0000000..b5fdff5
+--- /dev/null
++++ b/spec/views/pages/home.html.erb_spec.rb
+@@ -0,0 +1,5 @@
++require 'spec_helper'
++
++describe "pages/home.html.erb" do
++  pending "add some examples to (or delete) #{__FILE__}"
++end
